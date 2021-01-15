@@ -1,0 +1,8 @@
+.idea/
+*.iml
+.DS_Store
+._*
+node_modules/
+src/**/*.js
+yarn-error.log
+dist/
