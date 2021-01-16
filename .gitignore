@@ -6,3 +6,6 @@ node_modules/
 src/**/*.js
 yarn-error.log
 dist/
+
+index.d.ts
+index.min.js

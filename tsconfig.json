@@ -8,7 +8,7 @@
       "bignumber.js"
     ],
     "declaration": true,
-    "declarationDir": "dist/",
+    "declarationDir": "./",
     "lib": [
       "ES2015"
     ]

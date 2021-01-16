@@ -18,6 +18,7 @@ module.exports = {
         ]
     },
     output: {
+        path: path.resolve(__dirname),
         filename: "index.min.js",
         libraryTarget: 'commonjs'
     }
