@@ -12,12 +12,20 @@ interface RequestData {
     amount: string
     to: string
     from: string
+    url?: string
 }
 
 const converter = {
     async convert(data: RequestData): Promise<ResultData> {
-        let axiosData: undefined | any = undefined
-        await axios.get("https://cdn.jsdelivr.net/gh/prebid/currency-file@1/latest.json")
+        let axiosData: undefined | any = undefined;
+
+        let url_get = "https://cdn.jsdelivr.net/gh/prebid/currency-file@1/latest.json";
+
+        if (data.url) {
+            url_get = data.url;
+        }
+
+        await axios.get(url_get)
             .then((res: AxiosResponse) => {
                 if (res.data) {
                     axiosData = res.data
@@ -50,9 +58,14 @@ const converter = {
 
 
 const utils = {
-    async getAllSupportCurrency(): Promise<Array<string>> {
-        let axiosData: undefined | any = undefined
-        await axios.get("https://cdn.jsdelivr.net/gh/prebid/currency-file@1/latest.json")
+    async getAllSupportCurrency(url: string): Promise<Array<string>> {
+        let axiosData: undefined | any = undefined;
+        let url_get = "https://cdn.jsdelivr.net/gh/prebid/currency-file@1/latest.json";
+
+        if (url) {
+            url_get = url;
+        }
+        await axios.get(url_get)
             .then((res: AxiosResponse) => {
                 if (res.data) {
                     axiosData = res.data
